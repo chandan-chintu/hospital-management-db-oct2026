@@ -51,4 +51,17 @@ public class DoctorController {
        String response = doctorService.deleteDoctorById(id);
        return response;
     }
+
+    @PutMapping("/updatePut/{id}")
+    public String updateDoctorUsingPut(@PathVariable int id, @RequestBody Doctor newDoctorRequest){
+        String response = doctorService.updateDoctorUsingPut(id,newDoctorRequest);
+        return response;
+    }
+
+    // @RequestParam - it takes the input in the form of parameter query
+    @PatchMapping("/updatePatch/{id}")
+    public String updateDoctorUsingPatch(@PathVariable int id, @RequestParam String newMobile, @RequestParam String newEmail){
+        String response = doctorService.updateDoctorUsingPatch(id,newMobile, newEmail);
+        return response;
+    }
 }
